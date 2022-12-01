@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Bing map simple view</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="shared.css" rel="stylesheet" type="text/css" />
+  <link href="common.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="myMap"></div>
+
+  <footer id="footer">
+    <div class="wrap box">
+      <div class="c-left">
+        <p class="logo non-over"><a href="./"><img
+              src="https://frame-illust.com/fi/wp-content/uploads/2017/03/9563-480x480.png" width=60 height=60
+              alt="とらちゃん画像"></a></p>
+        <dl class="tel">
+          <dt>ご予約・お問い合わせ</dt>
+          <dd><a href="tel:0582013001" class="telhref"
+              onClick="gtag('event','click',{'event_category':'tel','event_label':'footer_phone'});"><small>tel.
+              </small><span>058-201-3001</span></a></dd>
+        </dl>
+
+      </div>
+      <div class="c-right">
+        <h4>岐阜の焼肉店　焼肉とらちゃん</h4>
+        <dl>
+          <dt>住所</dt>
+          <dd>〒501-6001<br />岐阜県 羽島郡 岐南町1-1 <br class="sp" />ヒルズ1F</dd>
+        </dl>
+        <dl>
+          <dt>アクセス</dt>
+          <dd>名鉄名古屋本線より徒歩20分<br />岐南インターチェンジ降りてすぐ！</dd>
+        </dl>
+        <dl>
+          <dt>営業時間</dt>
+          <dd>17:00～26:00（L.O.25:30）</dd>
+        </dl>
+        <dl>
+          <dt>定休日</dt>
+          <dd>不定期</dd>
+        </dl>
+
+        <div id="socialbuttons"></div>
+        <address>© 岐阜の焼肉店　焼肉とらちゃん. All Rights Reserved.</address>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <script type='text/javascript'
+    src='https://www.bing.com/api/maps/mapcontrol?key=AgeX56rgaCmLUNrUQPDzAY4qEgHNWEx8OzBdzJ13a3loGO0XH5OfisCHOg4gGmiN&callback=loadMapScenario'
+    async defer></script>
+  <script type="text/javascript">
+    function loadMapScenario() {
+      var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+        /* No need to set credentials if already passed in URL */
+        center: new Microsoft.Maps.Location(35.38906693005961, 136.78848358413515),
+        mapTypeId: Microsoft.Maps.MapTypeId.canvasLight,
+        zoom: 15
+      });
+
+      var center = map.getCenter();
+
+      //Create custom Pushpin
+      var pin = new Microsoft.Maps.Pushpin(center, {
+        title: '焼肉 とらちゃん',
+        subTitle: 'ここだよ',
+        text: '1'
+      });
+
+      //Add the pushpin to the map
+      map.entities.push(pin);
+
+    }
+  </script>
+</body>
+
+</html>
